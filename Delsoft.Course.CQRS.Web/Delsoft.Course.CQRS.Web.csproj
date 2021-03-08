@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Delsoft.Course.CQRS.Data\Delsoft.Course.CQRS.Data.csproj" />
+      <ProjectReference Include="..\Delsoft.Course.CQRS.Domain\Delsoft.Course.CQRS.Domain.csproj" />
+      <ProjectReference Include="..\Delsoft.Course.CQRS.Model\Delsoft.Course.CQRS.Model.csproj" />
+    </ItemGroup>
+
+</Project>
