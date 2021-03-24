@@ -4,9 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Delsoft.Course.CQRS.Data;
 using Delsoft.Course.CQRS.Domain.Commands;
+using Delsoft.Course.CQRS.Domain.Commands.Decorators;
 using Delsoft.Course.CQRS.Domain.Commands.Handlers;
+using Delsoft.Course.CQRS.Domain.Queries;
+using Delsoft.Course.CQRS.Domain.Queries.Handlers;
 using Delsoft.Course.CQRS.Domain.Services;
+using Delsoft.Course.CQRS.Model.Aggregates;
 using Delsoft.Course.CQRS.Model.Commands;
+using Delsoft.Course.CQRS.Model.Queries;
+using Delsoft.Course.CQRS.Web.Registration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,8 +41,8 @@ namespace Delsoft.Course.CQRS.Web
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Delsoft.Course.CQRS.Web", Version = "v1" }); });
 
-            services.AddScoped<ICommandBus, CommandBus>();
-            services.AddScoped<ICommandHandler<RegisterWine>, RegisterWineHandler>();
+            services.AddHandlers();
+
             services.AddScoped<IWineRepository, WineRepository>();
 
             services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("Wine"));

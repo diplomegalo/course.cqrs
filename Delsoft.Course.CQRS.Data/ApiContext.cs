@@ -11,7 +11,7 @@ namespace Delsoft.Course.CQRS.Data
         {
         }
 
-        private DbSet<Wine> Wines { get; set; }
+        public DbSet<Wine> Wines { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
